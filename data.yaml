@@ -1,0 +1,13 @@
+train: ../train/images
+val: ../valid/images
+test: ../test/images
+
+nc: 4
+names: ['hand', 'head', 'human body', 'leg']
+
+roboflow:
+  workspace: thesis-ycrnd
+  project: human-life-detection-under-disaster
+  version: 5
+  license: MIT
+  url: https://universe.roboflow.com/thesis-ycrnd/human-life-detection-under-disaster/dataset/5
