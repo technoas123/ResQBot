@@ -1,3 +1,43 @@
+"""
+Thermal Sensor Feature Extraction for Human Detection
+
+This module processes time-series thermal sensor data (ambient and object temperatures)
+and extracts sliding window features for machine learning-based human detection.
+
+Data Processing Pipeline:
+1. Reads CSV files containing thermal sensor readings with columns: t, ambient_c, object_c
+2. Applies sliding window approach to capture temporal patterns
+3. Extracts 16 statistical and gradient features per window
+4. Organizes data by train/val splits and class labels
+
+Feature Set (16 features per window):
+- Object temperature statistics: mean, std, min, max, 5th percentile, 95th percentile (6)
+- Temperature difference (object - ambient) statistics: mean, std, min, max (4)
+- Temporal trends: linear slope of object temp, slope of temp difference (2)
+- Most recent values: last object temp, last temp difference (4)
+
+Window Parameters:
+- win_sec: Window size in seconds (default: 2.0s)
+- step_sec: Step size for sliding window in seconds (default: 1.0s)
+- Overlapping windows provide robust temporal feature extraction
+
+Input Structure:
+- data/raw/thermal/{train,val}/{class_name}/*.csv
+  Each CSV contains: timestamp (t), ambient_c, object_c columns
+
+Output:
+- data/processed/thermal_features/train.npz (X: features, y: labels)
+- data/processed/thermal_features/val.npz
+- data/processed/thermal_features/classes.json (class name mapping)
+
+Usage:
+    python script_name.py --raw_root data/raw/thermal --win_sec 2.0 --step_sec 1.0
+
+Use Case: Extracts temporal thermal signatures to distinguish human heat patterns
+from background/non-human sources in disaster response scenarios.
+"""
+
+
 import os, glob, json, argparse
 import numpy as np, pandas as pd
 

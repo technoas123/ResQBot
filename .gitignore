@@ -4,22 +4,90 @@ __pycache__/
 *$py.class
 *.so
 .Python
-env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# Virtual Environments
 venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+.venv/
 
-# Data
-data/raw/*
-data/processed/*
-
-# Models
-models/saved/*
-
-# Notebooks
+# Jupyter Notebooks
 .ipynb_checkpoints
+*.ipynb
 
-# IDE
+# IDEs
 .vscode/
 .idea/
-
-# Misc
+*.swp
+*.swo
+*~
 .DS_Store
+
+# Data Folders (IMPORTANT - Don't upload large datasets)
+data/
+data/raw/
+data/processed/
+data/models/
+*.csv
+*.wav
+*.mp3
+*.jpg
+*.jpeg
+*.png
+*.mp4
+*.avi
+
+# Model Checkpoints (Large files)
+*.pt
+*.pth
+*.h5
+*.ckpt
+*.pb
+*.onnx
+*.tflite
+runs/
+
+# Temporary Files
+temp_audio.wav
+webcam_frame.jpg
+test_thermal.png
+*.tmp
+*.log
+
+# Training Outputs
+logs/
+checkpoints/
+results/
+outputs/
+
+# System Files
+Thumbs.db
+.DS_Store
+*.bak
+*.swp
+
+# Environment Variables
+.env
+.env.local
+
+# Documentation (optional - remove if you want to track these)
+*.pdf
+*.docx
