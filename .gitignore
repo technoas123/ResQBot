@@ -91,3 +91,7 @@ Thumbs.db
 # Documentation (optional - remove if you want to track these)
 *.pdf
 *.docx
+
+# BUT allow model files in the models directory
+!data/models/**/*.pt
+!data/models/**/*.pth
